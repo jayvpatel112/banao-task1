@@ -1,0 +1,139 @@
+[
+{
+    "model": "dashboard.user",
+    "fields": {
+        "password": "pbkdf2_sha256$390000$LcroSLFUuxw6igZJjH9qv2$YwpM4FHSPg7TMhok/Giteh+dQgtCJK5Nwtnl515jG+8=",
+        "last_login": "2022-09-08T08:28:20.501Z",
+        "is_superuser": false,
+        "username": "aaa",
+        "first_name": "aaa",
+        "last_name": "aaa",
+        "email": "abc@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-09-08T06:52:58.466Z",
+        "Profile_Picture": "profiles/2022/09/08/img1.jpg",
+        "address": "aaa",
+        "city": "aaa",
+        "state": "aaa",
+        "pincode": 384002,
+        "user_type": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "dashboard.user",
+    "fields": {
+        "password": "pbkdf2_sha256$390000$GPJAGCNs3k5uulxvamEveh$igT20wbNXfzcy1MvecmKeZBlWiRO1Y+pGNirLzA9x+8=",
+        "last_login": "2022-09-08T06:54:36.195Z",
+        "is_superuser": true,
+        "username": "jay",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2022-09-08T06:53:48.844Z",
+        "Profile_Picture": "",
+        "address": "",
+        "city": "",
+        "state": "",
+        "pincode": null,
+        "user_type": 1,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "dashboard.user",
+    "fields": {
+        "password": "pbkdf2_sha256$390000$jdgNJtc6hcqAfREmzE5rcn$+AU3yYT84edlMuH9PGSWpXROBylf50AkpKof95WwyQI=",
+        "last_login": "2022-09-08T06:56:57.066Z",
+        "is_superuser": false,
+        "username": "bbb",
+        "first_name": "bbb",
+        "last_name": "bbb",
+        "email": "bbb@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-09-08T06:56:42.905Z",
+        "Profile_Picture": "profiles/2022/09/08/jay_img.jpg",
+        "address": "bbb",
+        "city": "bbb",
+        "state": "bbb",
+        "pincode": 384002,
+        "user_type": 1,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "dashboard.user",
+    "fields": {
+        "password": "pbkdf2_sha256$390000$Pyhn7VhMOag9vmFmyx2AWh$tAzJF60NoSLABMAxQYDF2e462MbFj34MUhBV02GH3PY=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "ddd1",
+        "first_name": "ddd1",
+        "last_name": "ddd1",
+        "email": "ddd1@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-09-08T08:31:50.972Z",
+        "Profile_Picture": "profiles/2022/09/08/img1_bEy7F93.jpg",
+        "address": "ddd1",
+        "city": "ddd1",
+        "state": "ddd1",
+        "pincode": 384002,
+        "user_type": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "dashboard.user",
+    "fields": {
+        "password": "pbkdf2_sha256$390000$DuHzytEtsIyp3ScuLpmRSu$HNFYh3p7sFcwkpoSKqbOqyFPqgIoMBuR3aVgdOc2T20=",
+        "last_login": "2022-09-08T08:33:16.232Z",
+        "is_superuser": false,
+        "username": "ddd2",
+        "first_name": "ddd2",
+        "last_name": "ddd2",
+        "email": "def@gamil.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-09-08T08:33:04.999Z",
+        "Profile_Picture": "profiles/2022/09/08/img1_PqJ6c9G.jpg",
+        "address": "ddd2",
+        "city": "ddd2",
+        "state": "ddd2",
+        "pincode": 384002,
+        "user_type": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "dashboard.post",
+    "pk": 1,
+    "fields": {
+        "title": "aaa",
+        "image": "posts/2022/09/08/img1_SaCzftT.jpg",
+        "category": 1,
+        "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "username": "aaa"
+    }
+},
+{
+    "model": "dashboard.draft",
+    "pk": 2,
+    "fields": {
+        "title": "aaa",
+        "image": "posts/2022/09/08/img1_HSuLjbL.jpg",
+        "category": 2,
+        "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+        "username": "aaa"
+    }
+}
+]
