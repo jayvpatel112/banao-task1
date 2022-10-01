@@ -19,3 +19,37 @@ class User(AbstractUser):
 
     def __str__(self):
         return f"{self.address}"
+
+class Post(models.Model):
+    CATEGORY_CHOICES = (
+        (1, 'Mental Health'),
+        (2, 'Heart Disease'),
+        (3, 'Covid19'),
+        (4, 'Immunization'),
+    )
+
+    title = models.CharField(max_length=300)
+    image = models.ImageField(upload_to='posts/%Y/%m/%d')
+    category = models.PositiveIntegerField(choices=CATEGORY_CHOICES, default=1)
+    content = models.TextField()
+    username = models.CharField(max_length=1000)
+
+    def __str__(self):
+        return f"{self.title}"
+
+class Draft(models.Model):
+    CATEGORY_CHOICES = (
+        (1, 'Mental Health'),
+        (2, 'Heart Disease'),
+        (3, 'Covid19'),
+        (4, 'Immunization'),
+    )
+
+    title = models.CharField(max_length=300)
+    image = models.ImageField(upload_to='posts/%Y/%m/%d')
+    category = models.PositiveIntegerField(choices=CATEGORY_CHOICES, default=1)
+    content = models.TextField()
+    username = models.CharField(max_length=1000)
+
+    def __str__(self):
+        return f"{self.title}"

@@ -16,17 +16,19 @@
     <div class="col-lg-4 col-md-4 col-sm-5">
         <ul class="top-social-media pull-right">
             {% if user.is_authenticated%}
-                <li style="font-size: 30px;"">
-                    <a href="{% url 'home'%}" class="sign-in"><i class="fa fa-tachometer"></i>Home</a>
-                </li>
-                <li style="font-size: 30px;"">
-                    <a href="{% url 'profile'%}" class="sign-in"><i class="fa fa-tachometer"></i>Profile</a>
-                </li>
-                {% comment %} bookslotdashboard {% endcomment %}
+            <li style="font-size: 30px;"">
+                <a href="{% url 'home'%}" class="sign-in"><i class="fa fa-tachometer"></i>Home</a>
+            </li>
+            <li style="font-size: 30px;"">
+                <a href="{% url 'profile'%}" class="sign-in"><i class="fa fa-tachometer"></i>Profile</a>
+            </li>
+            <li style="font-size: 30px;"">
+                <a href="{% url 'all-posts'%}" class="sign-in"><i class="fa fa-tachometer"></i>All Posts</a>
+            </li>
             {% if user.user_type == 2 %}
-                {% comment %} <li style="font-size: 30px;"">
+                <li style="font-size: 30px;"">
                     <a href="{% url 'draft'%}" class="sign-in"><i class="fa fa-tachometer"></i>All Draft</a>
-                </li> {% endcomment %}
+                </li>
             {% endif %}
             <li style="font-size: 30px;"">
                 <a href="javascript:{document.getElementById('logout').submit()}" class="sign-in"><i class="fa fa-sign-out"></i>logout</a>
@@ -36,12 +38,12 @@
                 </form>
             </li>
             {% else %}
-                <li style="font-size: 30px;">
-                    <a href="{% url 'login'%}" class="sign-in">Login</a>
-                </li>
-                <li style="font-size: 30px;">
-                    <a href="{% url 'signup'%}" class="sign-in">Sign Up</a>
-                </li>
+            <li style="font-size: 30px;">
+                <a href="{% url 'login'%}" class="sign-in">Login</a>
+            </li>
+            <li style="font-size: 30px;">
+                <a href="{% url 'signup'%}" class="sign-in">Sign Up</a>
+            </li>
             {% endif%}
         </ul>
     </div>
