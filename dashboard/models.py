@@ -53,3 +53,14 @@ class Draft(models.Model):
 
     def __str__(self):
         return f"{self.title}"
+
+class bookappointment(models.Model):
+    doctor_name = models.CharField(max_length=100)
+    required_specification = models.CharField(max_length=500)
+    appointment_date = models.DateField()
+    appointment_start_time = models.TimeField()
+    appointment_end_time = models.TimeField()
+    username = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.appointment_start_time}"

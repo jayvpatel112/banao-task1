@@ -25,6 +25,10 @@
             <li style="font-size: 30px;"">
                 <a href="{% url 'all-posts'%}" class="sign-in"><i class="fa fa-tachometer"></i>All Posts</a>
             </li>
+            <li style="font-size: 30px;"">
+                <a href="{% url 'bookslotdashboard'%}" class="sign-in"><i class="fa fa-tachometer"></i>book slot dashboard</a>
+            </li>
+            {% comment %} bookslotdashboard {% endcomment %}
             {% if user.user_type == 2 %}
                 <li style="font-size: 30px;"">
                     <a href="{% url 'draft'%}" class="sign-in"><i class="fa fa-tachometer"></i>All Draft</a>

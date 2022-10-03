@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import User, Post, Draft
+from .models import User, Post, Draft, bookappointment
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
 # Create your views here.
@@ -8,21 +8,37 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     # userdetail = User.objects.filter(username=request.user)
     userdetail = User.objects.get(id=request.user.id)
-    if request.method == "POST":
-        title = request.POST.get("title")
-        image = request.FILES["image"]
-        category = request.POST.get("category")
-        content = request.POST.get("content")
-        submit = request.POST.get("submit")
-        print(submit)
-        if submit == "createpost":
-            post = Post(title=title, image=image, category=category, content=content, username=request.user)
-            post.save()
-        else:
-            draft = Draft(title=title, image=image, category=category, content=content, username=request.user)
-            draft.save()
-        return redirect('profile')
-    return render(request, 'dashboard/home.html', {"userdetail":userdetail})
+    doctors = User.objects.filter(user_type=2)
+    # for i in doctors:
+    #     print(i.first_name)
+    # print(doctors[1:])
+    print(request.user)
+    if userdetail.user_type == 1 :
+        if request.method == "POST":
+            submit = request.POST.get("submit")
+            doctorname = request.POST.get("doctorname")
+            print(doctorname)
+            if submit == "bookappointment":
+                b = bookappointment(doctor_name=doctorname, required_specification="", appointment_date="2022-09-14", appointment_start_time="14:15", appointment_end_time="5:00", username=request.user)
+                b.save()
+                print(b.id)
+                return redirect('appoinmentconfirm', id=b.id)
+    else:
+        if request.method == "POST":
+            title = request.POST.get("title")
+            image = request.FILES["image"]
+            category = request.POST.get("category")
+            content = request.POST.get("content")
+            submit = request.POST.get("submit")
+            print(submit)
+            if submit == "createpost":
+                post = Post(title=title, image=image, category=category, content=content, username=request.user)
+                post.save()
+            else:
+                draft = Draft(title=title, image=image, category=category, content=content, username=request.user)
+                draft.save()
+            return redirect('profile')
+    return render(request, 'dashboard/home.html', {"userdetail":userdetail, "doctors": doctors[:]})
 
 def signup(request):
     if request.method == "POST":
@@ -134,3 +150,55 @@ def draft(request):
         #     print(drafts)
         return render(request, 'dashboard/draft.html', {"draft": drafts})
     return render(request, 'dashboard/draft.html', {"draft": drafts})
+
+from datetime import datetime
+from datetime import timedelta
+
+@login_required(login_url = 'login')
+def appoinmentconfirm(request, id):
+    if request.method == "POST":
+        b= bookappointment.objects.get(id=id)
+        print(b)
+        speciality = request.POST.get('speciality')
+        date = request.POST.get('date')
+        time_str = request.POST.get('time')
+
+        b.required_specification = speciality
+        b.appointment_date = date
+        b.appointment_start_time = time_str
+
+        # print(b.id, b.appointment_start_time)
+        # print(date, time_str)
+        date_format_str = '%H:%M'
+        given_time = datetime.strptime(time_str, date_format_str)
+        final_time = given_time + timedelta(minutes=45)
+        print(final_time)
+        final_time_str = final_time.strftime('%H:%M')
+        b.appointment_end_time = final_time_str
+        b.save()
+        # print(type(time))
+        return redirect('finalconfirm', id)
+    return render(request, 'dashboard/appointment.html', {"id":id})
+
+from .calendar_API import test_calendar
+
+@login_required(login_url = 'login')
+def finalconfirm(request, id):
+    b= bookappointment.objects.get(id=id)
+    if request.method == "POST":
+        b= bookappointment.objects.get(id=id)
+        submit = request.POST.get("submit")
+        if submit == "confirm":
+            results = test_calendar(b.appointment_date, b.appointment_start_time, b.appointment_end_time)
+            context = {"results": results}
+            return redirect('bookslotdashboard')
+            # return render(request, 'demo.html', context)
+        else:
+            b.delete()
+
+    return render(request, 'dashboard/finalconfirm.html', {"b": b, "id": id})
+
+@login_required(login_url = 'login')
+def bookslotdashboard(request):
+    b = bookappointment.objects.filter(username=request.user)
+    return render(request, 'dashboard/bookslotdashboard.html', {"slots": b})

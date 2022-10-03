@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-$(xs&92i)9a!*w9hh)me!bhl0^oq#+yt27%u(3g4zhv4#x(aio
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['banao-tech-task1.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['banao-doctor-appointment.herokuapp.com','banao-tech-task1.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -104,7 +104,7 @@ WSGI_APPLICATION = 'Banao_tech_task1.wsgi.application'
 # }
 
 import dj_database_url
-DATABASES = {'default': dj_database_url.config(default='postgres://postgres:jay@localhost/banao_tech_db')}
+DATABASES = {'default': dj_database_url.config(default='postgres://postgres:jay@localhost/banao_doctor_appointment_db')}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
